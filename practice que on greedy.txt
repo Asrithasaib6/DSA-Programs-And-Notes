@@ -1,0 +1,125 @@
+Question:
+"Given a set of activities with start and end times, select the maximum number of activities that can be performed by a single person." please tell me in a easy way
+
+
+Algo:
+Sort the activities by their ending times.
+
+Start with the first activity (the one that ends the earliest).
+
+Pick it, and then skip any activities that overlap with it.
+
+Move to the next activity that doesn't overlap, pick it, and repeat this process until you've checked all the activities.
+
+
+Answer:
+Example:
+You have the following activities with their start and end times:
+
+Activity 1: Starts at 1, Ends at 4
+
+Activity 2: Starts at 3, Ends at 5
+
+Activity 3: Starts at 0, Ends at 6
+
+Activity 4: Starts at 5, Ends at 7
+
+Activity 5: Starts at 8, Ends at 9
+
+Activity 6: Starts at 5, Ends at 9
+
+Steps to Solve:
+Sort activities by their ending times: After sorting by end time:
+
+Activity 1: Ends at 4
+
+Activity 2: Ends at 5
+
+Activity 3: Ends at 6
+
+Activity 4: Ends at 7
+
+Activity 5: Ends at 9
+
+Activity 6: Ends at 9
+
+Start picking activities:
+
+Pick Activity 1 (ends at 4).
+
+Now, skip all activities that overlap with Activity 1. Activity 2 and Activity 3 overlap, so ignore them.
+
+Move to Activity 4 (starts at 5, doesn’t overlap with Activity 1). Pick Activity 4.
+
+Next, pick Activity 5 (starts at 8, doesn’t overlap with Activity 4).
+
+Activity 6 overlaps with Activity 5, so skip it.
+
+Result:
+The maximum number of activities you can choose is 3:
+
+Activity 1 (1 to 4)
+
+Activity 4 (5 to 7)
+
+Activity 5 (8 to 9)
+
+
+
+
+=====================================================================================================================================================
+
+
+
+We have 4 jobs to schedule on a single machine. Each job has a processing time and a due date:
+
+Job	Processing Time (hours)	Due Date (hours from now)
+A	4	7
+B	3	5
+C	2	6
+D	1	8
+Step 1: Sort Jobs by Due Date
+We rearrange the jobs in ascending order of their due dates:
+
+Job B (due in 5 hours)
+
+Job C (due in 6 hours)
+
+Job A (due in 7 hours)
+
+Job D (due in 8 hours)
+
+Step 2: Schedule Jobs in Order
+We process the jobs one at a time in this sorted order:
+
+Job B: Starts at time 0, ends at time 3
+
+Job C: Starts at time 3, ends at time 5
+
+Job A: Starts at time 5, ends at time 9
+
+Job D: Starts at time 9, ends at time 10
+
+Step 3: Calculate Lateness for Each Job
+Lateness is calculated as: Lateness = Completion Time - Due Date (if this value is negative, lateness is 0).
+
+Job	Completion Time	Due Date	
+B	3	5	0
+C	5	6	0
+A	9	7	2
+D	10	8	2
+Result:
+Using the EDD rule, the maximum lateness is 2 hours, and we minimized it by scheduling jobs based on their due dates.
+
+Let me know if you'd like to explore variations or more complex scenarios!
+
+what is lateness
+Lateness refers to how much a job's completion time exceeds its due date. Mathematically, it's defined as:
+
+Lateness = Completion Time - Due Date
+
+If the lateness value is positive, it means the job finished late.
+
+If it's zero, the job finished exactly on time.
+
+If the value is negative, lateness is considered zero, as it indicates the job finished early.
